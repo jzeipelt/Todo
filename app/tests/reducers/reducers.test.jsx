@@ -37,13 +37,6 @@ describe('Reducers', () => {
     it('should toggle a todo', () => {
       var todos = [
         {
-          id: 1,
-          text: 'Go out sometime',
-          completed: false,
-          createdAt: 1,
-          completedAt: undefined
-        },
-        {
           id: 2,
           text: 'Go in again',
           completed: true,
@@ -56,9 +49,9 @@ describe('Reducers', () => {
         id: 2
       }
       var res = reducers.todosReducer(df(todos), df(action));
-      expect(res.length).toEqual(2);
-      expect(res[1].completed).toEqual(false);
-      expect(res[1].completedAt).toEqual(undefined);
+      expect(res.length).toEqual(1);
+      expect(res[0].completed).toEqual(false);
+      expect(res[0].completedAt).toEqual(undefined);
     });
   });
 });
