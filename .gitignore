@@ -2,4 +2,3 @@ node_modules/
 playground/
 public/bundle.js
 config/
-yarn.lock
