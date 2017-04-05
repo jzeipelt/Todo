@@ -4,8 +4,9 @@
   "description": "React App",
   "main": "index.js",
   "scripts": {
-    "test": "karma start",
-    "start": "node server.js"
+    "test": "NODE_ENV=test karma start",
+    "build": "webpack -p",
+    "start": "npm run build && node server.js"
   },
   "author": "JZ",
   "license": "MIT",
@@ -15,9 +16,7 @@
     "firebase": "^3.7.1",
     "react": "latest",
     "react-dom": "latest",
-    "react-router": "latest"
-  },
-  "devDependencies": {
+    "react-router": "latest",
     "babel-core": "latest",
     "babel-loader": "latest",
     "babel-preset-es2015": "latest",
@@ -28,13 +27,6 @@
     "expect": "latest",
     "foundation-sites": "6.2.4",
     "jquery": "latest",
-    "karma": "latest",
-    "karma-chrome-launcher": "latest",
-    "karma-mocha": "latest",
-    "karma-mocha-reporter": "latest",
-    "karma-sourcemap-loader": "latest",
-    "karma-webpack": "latest",
-    "mocha": "latest",
     "moment": "latest",
     "node-sass": "latest",
     "react-addons-test-utils": "latest",
@@ -47,5 +39,14 @@
     "style-loader": "latest",
     "uuid": "latest",
     "webpack": "1.13.2"
+  },
+  "devDependencies": {
+    "karma": "latest",
+    "karma-chrome-launcher": "latest",
+    "karma-mocha": "latest",
+    "karma-mocha-reporter": "latest",
+    "karma-sourcemap-loader": "latest",
+    "karma-webpack": "latest",
+    "mocha": "latest"
   }
 }
