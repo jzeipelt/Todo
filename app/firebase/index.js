@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase from 'firebase'
 
 try {
   var config = {
@@ -9,10 +9,11 @@ try {
     storageBucket: process.env.STORAGE_BUCKET,
     messagingSenderId: process.env.MESSAGING_SENDER_ID
   };
-  firebase.initializeApp(config);
+  firebase.initializeApp(config)
 } catch (e) {
 
 }
 
-export var firebaseRef = firebase.database().ref();
-export default firebase;
+export var githubProvider = new firebase.auth.GithubAuthProvider()
+export var firebaseRef = firebase.database().ref()
+export default firebase
