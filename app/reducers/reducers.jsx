@@ -25,12 +25,12 @@ export var todosReducer = (state = [], action) => {
       return [
         ...state,
         action.todo
-      ];
+      ]
     case 'ADD_TODOS':
       return [
         ...state,
         ...action.todos
-      ];
+      ]
     case 'UPDATE_TODO':
       return state.map((todo) => {
         if (todo.id === action.id) {
@@ -39,11 +39,13 @@ export var todosReducer = (state = [], action) => {
             ...action.updates
           }
         } else {
-          return todo;
+          return todo
         }
-      });
+      })
+    case 'LOGOUT':
+      return []
     default:
-      return state;
+      return state
   }
 }
 
