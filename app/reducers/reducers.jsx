@@ -1,21 +1,21 @@
-var uuid = require('uuid');
-var moment = require('moment');
+var uuid = require('uuid')
+var moment = require('moment')
 
 export var searchTextReducer = (state = '', action) => {
   switch (action.type) {
     case 'SET_SEARCH_TEXT':
-      return action.searchText;
+      return action.searchText
     default:
-      return state;
+      return state
   }
 }
 
 export var showCompletedReducer = (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_SHOW_COMPLETED':
-      return !state;
+      return !state
     default:
-      return state;
+      return state
   }
 }
 

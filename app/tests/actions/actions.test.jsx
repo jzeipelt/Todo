@@ -1,31 +1,31 @@
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-var expect = require('expect');
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+var expect = require('expect')
 
-import firebase, {firebaseRef} from 'app/firebase/';
-var actions = require('actions');
+import firebase, {firebaseRef} from 'app/firebase/'
+var actions = require('actions')
 
-var createMockStore = configureMockStore([thunk]);
+var createMockStore = configureMockStore([thunk])
 
 describe('Actions', () => {
   it('should generate search text action', () => {
     var action = {
       type: 'SET_SEARCH_TEXT',
       searchText: 'Some search text'
-    };
-    var res = actions.setSearchText(action.searchText);
+    }
+    var res = actions.setSearchText(action.searchText)
 
-    expect(res).toEqual(action);
-  });
+    expect(res).toEqual(action)
+  })
 
   it('should generate toggle show completed action', () => {
     var action = {
       type: 'TOGGLE_SHOW_COMPLETED'
-    };
-    var res = actions.toggleShowCompleted();
+    }
+    var res = actions.toggleShowCompleted()
 
-    expect(res).toEqual(action);
-  });
+    expect(res).toEqual(action)
+  })
 
   it('should generate add todo action', () => {
     var action = {
@@ -36,11 +36,11 @@ describe('Actions', () => {
         completed: false,
         createdAt: 2342342
       }
-    };
-    var res = actions.addTodo(action.todo);
+    }
+    var res = actions.addTodo(action.todo)
 
-    expect(res).toEqual(action);
-  });
+    expect(res).toEqual(action)
+  })
 
   it('should generate add todos action', () => {
     var todos = [{
@@ -49,14 +49,14 @@ describe('Actions', () => {
       completed: false,
       completedAt: undefined,
       createdAt: 33000
-    }];
+    }]
     var action = {
       type: 'ADD_TODOS',
       todos
     }
-    var res = actions.addTodos(todos);
+    var res = actions.addTodos(todos)
 
-    expect(res).toEqual(action);
+    expect(res).toEqual(action)
   })
 
   it('should generate update todo action', () => {
@@ -64,30 +64,30 @@ describe('Actions', () => {
       type: 'UPDATE_TODO',
       id: 1,
       updates: {completed: false}
-    };
-    var res = actions.updateTodo(action.id, action.updates);
+    }
+    var res = actions.updateTodo(action.id, action.updates)
 
-    expect(res).toEqual(action);
-  });
+    expect(res).toEqual(action)
+  })
 
   it('should generate login action', () => {
     var action = {
       type: 'LOGIN',
       uid: '123456'
-    };
-    var res = actions.login(action.uid);
+    }
+    var res = actions.login(action.uid)
 
-    expect(res).toEqual(action);
-  });
+    expect(res).toEqual(action)
+  })
 
   it('should generate logout action', () => {
     var action = {
       type: 'LOGOUT'
-    };
-    var res = actions.logout();
+    }
+    var res = actions.logout()
 
-    expect(res).toEqual(action);
-  });
+    expect(res).toEqual(action)
+  })
 
   describe('Tests with firebase todos', () => {
     var testTodoRef
@@ -160,7 +160,7 @@ describe('Actions', () => {
       const todoText = 'whatever'
 
       store.dispatch(actions.startAddTodo(todoText)).then (() => {
-        const actions = store.getActions();
+        const actions = store.getActions()
         expect(actions[0]).toInclude({
           type: 'ADD_TODO'
         })
